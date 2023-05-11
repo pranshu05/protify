@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import getNowPlayingItem from "../APIs/SpotifyAPI";
 import ProgressBar from "@ramonak/react-progress-bar";
 
@@ -17,13 +18,11 @@ export function SpotifyPlayer(props) {
     });
   });
 
-  return result.isPlaying ? (
-    <svg viewBox="0 0 100 100">
-      <rect width="100%" height="100%" fill="white" />
-      <div className="nowplaying">
-        <h1>Listening Activity</h1>
-        <div className="spotify-cont">
-          <div className="spotify-track">
+  const svgMarkup = renderToStaticMarkup(
+    <div className="nowplaying">
+      <div className="spotify-cont">
+        <div className="spotify-track">
+          {result.isPlaying ? (
             <a href={result.songUrl} target="_blank" rel="noreferrer">
               <div className="song-img">
                 <img
@@ -49,29 +48,23 @@ export function SpotifyPlayer(props) {
                 />
               </div>
             </a>
-          </div>
+          ) : (
+            <div>
+              <div className="song-img">
+                <img
+                  src="https://user-images.githubusercontent.com/70943732/232979556-2a30490b-10ab-4da3-9d7d-359e0afa6b23.png"
+                  alt="music"
+                />
+              </div>
+              <div className="song-info">
+                <div className="song-artist">Not listening to Spotify rn!</div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
-    </svg>
-  ) : (
-    <svg viewBox="0 0 100 100">
-      <rect width="100%" height="100%" fill="white" />
-      <div className="nowplaying">
-        <h1>Listening Activity</h1>
-        <div className="spotify-cont">
-          <div className="spotify-track">
-            <div className="song-img">
-              <img
-                src="https://user-images.githubusercontent.com/70943732/232979556-2a30490b-10ab-4da3-9d7d-359e0afa6b23.png"
-                alt="music"
-              />
-            </div>
-            <div className="song-info">
-              <div className="song-artist">Not listening to Spotify rn!</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </svg>
+    </div>
   );
+
+  return <div dangerouslySetInnerHTML={{ __html: `${svgMarkup}` }}></div>;
 }

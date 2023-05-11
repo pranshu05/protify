@@ -1,7 +1,6 @@
 import React from "react";
-import "react-svg-loader";
+import { SpotifyPlayer } from "./components/Spotify";
 import "./App.css";
-import { SpotifyPlayer } from "./components/SpotifyPlayer";
 
 function App() {
   return (

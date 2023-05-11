@@ -37,7 +37,6 @@ a:active {
 }
 /* Default CSS End*/
 
-/* Spotify Start*/
 .spotify-track {
   display: flex;
   flex-direction: row;
@@ -45,7 +44,6 @@ a:active {
   border-radius: 10px;
   max-width: 350px;
   padding: 5px;
-  margin: 0 auto;
 }
 .song-info {
   display: flex;
@@ -72,4 +70,4 @@ a:active {
   width: 100%;
   border-radius: 5px;
 }
-/** Spotify End/
+/*Spotify End*/
