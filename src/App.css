@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+/* Default CSS start */
+* {
+  margin: 0;
+  padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-weight: 400;
+  background-color: #121212;
+  color: #eeeeee;
+  transition: 0.7s ease-in-out;
 }
+.highlight {
+  background-color: #181818;
+  color: #dbb3fe;
+}
+a,
+li,
+button,
+ul {
+  line-height: normal;
+  text-decoration: none;
+}
+a:link,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #dbb3fe;
+}
+/* Default CSS End*/
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Spotify Start*/
+.spotify-track {
+  display: flex;
+  flex-direction: row;
+  background: #181818;
+  border-radius: 10px;
+  max-width: 350px;
+  padding: 5px;
+  margin: 0 auto;
+}
+.song-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
+  float: right;
+  width: calc(80% - 10px);
+  padding-left: 10px;
 }
-
-.App-link {
-  color: #61dafb;
+.song-title {
+  font-size: medium;
+  font-weight: 700;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.song-artist {
+  font-weight: 500;
+  margin-bottom: 4px;
 }
+.song-img {
+  width: 20%;
+  float: left;
+}
+.song-img img {
+  width: 100%;
+  border-radius: 5px;
+}
+/** Spotify End/
