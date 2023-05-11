@@ -5,7 +5,9 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <SpotifyPlayer renderAsSvg={true} />
+      <svg viewBox="0 0 350 200">
+        <SpotifyPlayer renderAsSvg={true} />
+      </svg>
     </div>
   );
 }
