@@ -43,7 +43,6 @@ a:active {
   border-radius: 10px;
   width: 340px;
   padding: 5px;
-  margin: 0 auto;
 }
 .song-info {
   display: flex;
