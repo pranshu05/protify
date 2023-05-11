@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
 import getNowPlayingItem from "../APIs/SpotifyAPI";
 import ProgressBar from "@ramonak/react-progress-bar";
 
@@ -16,11 +15,6 @@ export function SpotifyPlayer(props) {
     ]).then((results) => {
       setResult(results[0]);
     });
-  });
-
-  useEffect(() => {
-    const svgMarkup = renderToStaticMarkup(renderComponent());
-    console.log(svgMarkup);
   });
 
   const renderComponent = () => {
