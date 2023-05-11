@@ -8,8 +8,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
-  scroll-padding-top: 70px;
 }
 body {
   font-weight: 400;
@@ -54,7 +52,6 @@ a:active {
   height: 100%;
   float: right;
   width: calc(80% - 10px);
-  padding-left: 10px;
 }
 .song-title {
   font-size: medium;
