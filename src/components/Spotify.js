@@ -17,20 +17,6 @@ export function SpotifyPlayer(props) {
     });
   });
 
-  const imageUrls = [
-    "https://wallpapercave.com/wp/wp8151920.jpg",
-    "https://wallpapercave.com/wp/wp5126947.jpg",
-    "https://e0.pxfuel.com/wallpapers/230/630/desktop-wallpaper-anime-aesthetic-pc-anime-aesthetic-pc-background-on-bat-retro-anime-aesthetic.jpg",
-    "https://i.pinimg.com/736x/80/7c/a1/807ca16b42e5fe7dc8a5794157076559.jpg",
-    "https://wallpapercave.com/wp/wp8151805.jpg",
-    "https://wallpaperaccess.com/full/839071.jpg",
-
-    // Add more image URLs as needed
-  ];
-
-  const randomImageUrl =
-    imageUrls[Math.floor(Math.random() * imageUrls.length)];
-
   return result.isPlaying ? (
     <div
       className="spotify-cont"
@@ -68,7 +54,7 @@ export function SpotifyPlayer(props) {
     <div
       className="spotify-cont"
       style={{
-        backgroundImage: `url(${randomImageUrl})`,
+        backgroundImage: `url(https://e0.pxfuel.com/wallpapers/230/630/desktop-wallpaper-anime-aesthetic-pc-anime-aesthetic-pc-background-on-bat-retro-anime-aesthetic.jpg)`,
         backgroundSize: "cover",
       }}
     >
