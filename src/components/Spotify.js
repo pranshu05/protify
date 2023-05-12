@@ -72,6 +72,7 @@ export function SpotifyPlayer(props) {
         backgroundSize: "cover",
       }}
     >
+      <div className="blur"></div>
       <div className="spotify-track">
         <div className="song-img">
           <img
