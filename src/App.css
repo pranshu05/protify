@@ -13,10 +13,7 @@ body {
   font-weight: 400;
   color: #eeeeee;
   transition: 0.7s ease-in-out;
-}
-.highlight {
-  background-color: #181818;
-  color: #dbb3fe;
+  background-color: #121212;
 }
 a,
 li,
@@ -35,13 +32,35 @@ a:active {
 /* Default CSS End*/
 
 /* Spotify Start*/
+.spotify-cont{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-position: center;
+}
+.blur{
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 .spotify-track {
+  z-index: 10;
   display: flex;
   flex-direction: column;
   background: #181818;
   border-radius: 10px;
   width: 300px;
-  padding: 10px;
+  padding: 10px; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .song-info {
   display: flex;

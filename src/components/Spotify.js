@@ -18,7 +18,14 @@ export function SpotifyPlayer(props) {
   });
 
   return result.isPlaying ? (
-    <div className="spotify-cont">
+    <div
+      className="spotify-cont"
+      style={{
+        backgroundImage: `url(${result.albumImageUrl})`,
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="blur"></div>
       <div className="spotify-track">
         <a href={result.songUrl} target="_blank" rel="noreferrer">
           <div className="song-img">
