@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Display your Spotify listening activity in a unique way! Follow steps below to get started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Preview
 
-## Available Scripts
+![image](https://github.com/pranshu05/card/assets/70943732/4ecd823d-a358-4f98-bc65-14b94377732c)
 
-In the project directory, you can run:
 
-### `npm start`
+## Spotify API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Create a [Spotify Application](https://developer.spotify.com/dashboard/applications)
+* Take note of:
+    * `Client ID`
+    * `Client Secret`
+* Click on **Edit Settings**
+* In **Redirect URIs**:
+    * Add `http://localhost/callback/`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Refresh Token
 
-### `npm test`
+* Navigate to the following URL:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+https://accounts.spotify.com/authorize?client_id={SPOTIFY_CLIENT_ID}&response_type=code&scope=user-read-currently-playing,user-read-recently-played&redirect_uri=http://localhost/callback/
+```
 
-### `npm run build`
+* After logging in, save the {CODE} portion of: `http://localhost/callback/?code={CODE}`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Create a string combining `{SPOTIFY_CLIENT_ID}:{SPOTIFY_CLIENT_SECRET}` (e.g. `5n7o4v5a3t7o5r2e3m1:5a8n7d3r4e2w5n8o2v3a7c5`) and **encode** into [Base64](https://base64.io/).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Then run a [curl command](https://httpie.org/run) in the form of:
+```sh
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Basic {BASE64}" -d "grant_type=authorization_code&redirect_uri=http://localhost/callback/&code={CODE}" https://accounts.spotify.com/api/token
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Save the Refresh token
 
-### `npm run eject`
+* Watch [video tutorial](https://www.youtube.com/watch?v=yAXoOolPvjU) by API-University
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Deployment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Deploy to Vercel
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Register on [Vercel](https://vercel.com/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* Fork this repo, then create a vercel project linked to it
 
-## Learn More
+* Add Environment Variables:
+    * `https://vercel.com/<YourName>/<ProjectName>/settings/environment-variables`
+        * `REACT_APP_SPOTIFY_REFRESH_TOKEN`
+        * `REACT_APP_SPOTIFY_CLIENT_ID`
+        * `REACT_APP_SPOTIFY_CLIENT_SECRET`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Deploy!
