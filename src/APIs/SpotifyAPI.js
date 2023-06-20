@@ -62,6 +62,7 @@ export default async function getNowPlayingItem(
   const albumName = song.item.album.name;
   const progressMs = song.progress_ms;
   const durationMs = song.item.duration_ms;
+  const trackId = song.item.id;
 
   return {
     artist,
@@ -72,5 +73,6 @@ export default async function getNowPlayingItem(
     progressMs,
     durationMs,
     albumName,
+    trackId,
   };
 }
