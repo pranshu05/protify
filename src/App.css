@@ -49,26 +49,18 @@ a:active {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-.container{
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
 .spotify-track {
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: #181818;
   border-radius: 10px;
   width: 300px;
   padding: 10px; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .song-info {
   display: flex;
@@ -93,40 +85,4 @@ a:active {
 .song-img img {
   width: 100%;
   border-radius: 10px;
-}
-.lyric-line {
-  transition: opacity 0.3s, transform 0.3s;
-  text-align: center;
-  padding: 20px;
-}
-.lyric-line.active {
-  font-size: 40px;
-  font-weight: bolder;
-  opacity: 1;
-}
-.lyric-line.previous {
-  font-size: 25px;
-  opacity: 0.6;
-}
-.lyric-line.next {
-  font-size: 25px;
-  opacity: 0.6;
-}
-.fade-enter {
-  opacity: 0;
-  transform: translateY(10px);
-}
-.fade-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 500ms, transform 500ms;
-}
-.fade-exit {
-  opacity: 1;
-  transform: translateY(0);
-}
-.fade-exit-active {
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 500ms, transform 500ms;
 }
