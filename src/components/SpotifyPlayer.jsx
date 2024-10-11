@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getNowPlayingItem from "@/components/getNowPlayingItem";
+import getNowPlayingItem from "@/utils/getNowPlayingItem";
 import ProgressBar from "@ramonak/react-progress-bar";
 
 export function SpotifyPlayer(props) {
